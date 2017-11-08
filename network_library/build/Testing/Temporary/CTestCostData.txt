@@ -1,0 +1,22 @@
+cpp-netlib-message_test 1 0.00971508
+cpp-netlib-message_transform_test 1 0.00681114
+cpp-netlib-utils_thread_pool 1 1.28559
+cpp-netlib-uri_test 1 0.0219061
+cpp-netlib-uri_builder_test 1 0.01579
+cpp-netlib-uri_builder_stream_test 1 0.0156951
+cpp-netlib-uri_encoding_test 1 0.00661302
+cpp-netlib-relative_uri_test 1 0.012809
+cpp-netlib-http-response_incremental_parser_test 1 0.00427604
+cpp-netlib-http-request_incremental_parser_test 1 0.00498891
+cpp-netlib-http-request_linearize_test 1 0.0124278
+cpp-netlib-http-client_constructor_test 1 0.00514388
+cpp-netlib-http-client_get_test 0 0
+cpp-netlib-http-client_get_different_port_test 0 0
+cpp-netlib-http-client_get_streaming_test 0 0
+cpp-netlib-http-server_constructor_test 1 0.0108049
+cpp-netlib-http-server_header_parser_test 1 0.00941586
+cpp-netlib-http-server_async_run_stop_concurrency 1 1.34381
+---
+cpp-netlib-http-client_get_test
+cpp-netlib-http-client_get_different_port_test
+cpp-netlib-http-client_get_streaming_test

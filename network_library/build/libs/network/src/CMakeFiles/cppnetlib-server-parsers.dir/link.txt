@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libcppnetlib-server-parsers.a  CMakeFiles/cppnetlib-server-parsers.dir/server_request_parsers_impl.cpp.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libcppnetlib-server-parsers.a

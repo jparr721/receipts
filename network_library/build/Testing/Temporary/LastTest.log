@@ -1,0 +1,838 @@
+Start testing: Nov 07 23:16 EST
+----------------------------------------------------------
+1/18 Testing: cpp-netlib-message_test
+1/18 Test: cpp-netlib-message_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-message_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test
+"cpp-netlib-message_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 9 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 3 tests from MessageTest/0, where TypeParam = boost::network::http::tags::http_default_8bit_tcp_resolve
+[ RUN      ] MessageTest/0.Constructors
+[       OK ] MessageTest/0.Constructors (0 ms)
+[ RUN      ] MessageTest/0.Equality
+[       OK ] MessageTest/0.Equality (0 ms)
+[ RUN      ] MessageTest/0.Inequality
+[       OK ] MessageTest/0.Inequality (0 ms)
+[----------] 3 tests from MessageTest/0 (0 ms total)
+
+[----------] 3 tests from MessageTest/1, where TypeParam = boost::network::http::tags::http_default_8bit_udp_resolve
+[ RUN      ] MessageTest/1.Constructors
+[       OK ] MessageTest/1.Constructors (0 ms)
+[ RUN      ] MessageTest/1.Equality
+[       OK ] MessageTest/1.Equality (0 ms)
+[ RUN      ] MessageTest/1.Inequality
+[       OK ] MessageTest/1.Inequality (0 ms)
+[----------] 3 tests from MessageTest/1 (0 ms total)
+
+[----------] 3 tests from MessageTest/2, where TypeParam = boost::network::tags::default_string
+[ RUN      ] MessageTest/2.Constructors
+[       OK ] MessageTest/2.Constructors (0 ms)
+[ RUN      ] MessageTest/2.Equality
+[       OK ] MessageTest/2.Equality (0 ms)
+[ RUN      ] MessageTest/2.Inequality
+[       OK ] MessageTest/2.Inequality (0 ms)
+[----------] 3 tests from MessageTest/2 (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 9 tests from 3 test cases ran. (1 ms total)
+[  PASSED  ] 9 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-message_test" end time: Nov 07 23:16 EST
+"cpp-netlib-message_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/18 Testing: cpp-netlib-message_transform_test
+2/18 Test: cpp-netlib-message_transform_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-message_transform_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test
+"cpp-netlib-message_transform_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 2 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 2 tests from MessageTransformTest
+[ RUN      ] MessageTransformTest.TransformToUpper
+[       OK ] MessageTransformTest.TransformToUpper (0 ms)
+[ RUN      ] MessageTransformTest.TransformToLower
+[       OK ] MessageTransformTest.TransformToLower (0 ms)
+[----------] 2 tests from MessageTransformTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test case ran. (0 ms total)
+[  PASSED  ] 2 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-message_transform_test" end time: Nov 07 23:16 EST
+"cpp-netlib-message_transform_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/18 Testing: cpp-netlib-utils_thread_pool
+3/18 Test: cpp-netlib-utils_thread_pool
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-utils_thread_pool"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test
+"cpp-netlib-utils_thread_pool" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 3 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 3 tests from ThreadPoolTest
+[ RUN      ] ThreadPoolTest.DefaultConstructor
+[       OK ] ThreadPoolTest.DefaultConstructor (0 ms)
+[ RUN      ] ThreadPoolTest.PostWork
+[       OK ] ThreadPoolTest.PostWork (0 ms)
+[ RUN      ] ThreadPoolTest.MultipleThreads
+[       OK ] ThreadPoolTest.MultipleThreads (1278 ms)
+[----------] 3 tests from ThreadPoolTest (1278 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test case ran. (1279 ms total)
+[  PASSED  ] 3 tests.
+<end of output>
+Test time =   1.29 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-utils_thread_pool" end time: Nov 07 23:16 EST
+"cpp-netlib-utils_thread_pool" time elapsed: 00:00:01
+----------------------------------------------------------
+
+4/18 Testing: cpp-netlib-uri_test
+4/18 Test: cpp-netlib-uri_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-uri_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/uri
+"cpp-netlib-uri_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 71 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 71 tests from URITest
+[ RUN      ] URITest.basic_uri_scheme_test
+[       OK ] URITest.basic_uri_scheme_test (1 ms)
+[ RUN      ] URITest.basic_uri_user_info_test
+[       OK ] URITest.basic_uri_user_info_test (0 ms)
+[ RUN      ] URITest.basic_uri_host_test
+[       OK ] URITest.basic_uri_host_test (0 ms)
+[ RUN      ] URITest.basic_uri_port_test
+[       OK ] URITest.basic_uri_port_test (0 ms)
+[ RUN      ] URITest.basic_uri_path_test
+[       OK ] URITest.basic_uri_path_test (0 ms)
+[ RUN      ] URITest.basic_uri_query_test
+[       OK ] URITest.basic_uri_query_test (0 ms)
+[ RUN      ] URITest.basic_uri_fragment_test
+[       OK ] URITest.basic_uri_fragment_test (0 ms)
+[ RUN      ] URITest.basic_uri_value_semantics_test
+[       OK ] URITest.basic_uri_value_semantics_test (1 ms)
+[ RUN      ] URITest.basic_uri_range_scheme_test
+[       OK ] URITest.basic_uri_range_scheme_test (0 ms)
+[ RUN      ] URITest.basic_uri_range_user_info_test
+[       OK ] URITest.basic_uri_range_user_info_test (0 ms)
+[ RUN      ] URITest.basic_uri_range_host_test
+[       OK ] URITest.basic_uri_range_host_test (0 ms)
+[ RUN      ] URITest.basic_uri_range_port_test
+[       OK ] URITest.basic_uri_range_port_test (0 ms)
+[ RUN      ] URITest.basic_uri_range_path_test
+[       OK ] URITest.basic_uri_range_path_test (0 ms)
+[ RUN      ] URITest.basic_uri_range_query_test
+[       OK ] URITest.basic_uri_range_query_test (0 ms)
+[ RUN      ] URITest.basic_uri_range_fragment_test
+[       OK ] URITest.basic_uri_range_fragment_test (0 ms)
+[ RUN      ] URITest.full_uri_scheme_test
+[       OK ] URITest.full_uri_scheme_test (0 ms)
+[ RUN      ] URITest.full_uri_user_info_test
+[       OK ] URITest.full_uri_user_info_test (0 ms)
+[ RUN      ] URITest.full_uri_host_test
+[       OK ] URITest.full_uri_host_test (0 ms)
+[ RUN      ] URITest.full_uri_port_test
+[       OK ] URITest.full_uri_port_test (0 ms)
+[ RUN      ] URITest.full_uri_path_test
+[       OK ] URITest.full_uri_path_test (0 ms)
+[ RUN      ] URITest.full_uri_query_test
+[       OK ] URITest.full_uri_query_test (0 ms)
+[ RUN      ] URITest.full_uri_fragment_test
+[       OK ] URITest.full_uri_fragment_test (0 ms)
+[ RUN      ] URITest.full_uri_range_scheme_test
+[       OK ] URITest.full_uri_range_scheme_test (0 ms)
+[ RUN      ] URITest.full_uri_range_user_info_test
+[       OK ] URITest.full_uri_range_user_info_test (0 ms)
+[ RUN      ] URITest.full_uri_range_host_test
+[       OK ] URITest.full_uri_range_host_test (0 ms)
+[ RUN      ] URITest.full_uri_range_port_test
+[       OK ] URITest.full_uri_range_port_test (0 ms)
+[ RUN      ] URITest.full_uri_range_path_test
+[       OK ] URITest.full_uri_range_path_test (0 ms)
+[ RUN      ] URITest.full_uri_range_query_test
+[       OK ] URITest.full_uri_range_query_test (0 ms)
+[ RUN      ] URITest.full_uri_range_fragment_test
+[       OK ] URITest.full_uri_range_fragment_test (0 ms)
+[ RUN      ] URITest.mailto_test
+[       OK ] URITest.mailto_test (0 ms)
+[ RUN      ] URITest.file_test
+[       OK ] URITest.file_test (1 ms)
+[ RUN      ] URITest.xmpp_test
+[       OK ] URITest.xmpp_test (0 ms)
+[ RUN      ] URITest.ipv4_address_test
+[       OK ] URITest.ipv4_address_test (0 ms)
+[ RUN      ] URITest.ipv4_loopback_test
+[       OK ] URITest.ipv4_loopback_test (0 ms)
+[ RUN      ] URITest.ipv6_address_test_1
+[       OK ] URITest.ipv6_address_test_1 (0 ms)
+[ RUN      ] URITest.ipv6_address_test_2
+[       OK ] URITest.ipv6_address_test_2 (0 ms)
+[ RUN      ] URITest.ftp_test
+[       OK ] URITest.ftp_test (0 ms)
+[ RUN      ] URITest.news_test
+[       OK ] URITest.news_test (0 ms)
+[ RUN      ] URITest.tel_test
+[       OK ] URITest.tel_test (0 ms)
+[ RUN      ] URITest.encoded_uri_test
+[       OK ] URITest.encoded_uri_test (0 ms)
+[ RUN      ] URITest.copy_constructor_test
+[       OK ] URITest.copy_constructor_test (0 ms)
+[ RUN      ] URITest.assignment_test
+[       OK ] URITest.assignment_test (0 ms)
+[ RUN      ] URITest.swap_test
+[       OK ] URITest.swap_test (0 ms)
+[ RUN      ] URITest.equality_test
+[       OK ] URITest.equality_test (0 ms)
+[ RUN      ] URITest.equality_test_1
+[       OK ] URITest.equality_test_1 (1 ms)
+[ RUN      ] URITest.equality_test_2
+[       OK ] URITest.equality_test_2 (0 ms)
+[ RUN      ] URITest.equality_test_3
+[       OK ] URITest.equality_test_3 (0 ms)
+[ RUN      ] URITest.equality_test_4
+[       OK ] URITest.equality_test_4 (0 ms)
+[ RUN      ] URITest.inequality_test
+[       OK ] URITest.inequality_test (0 ms)
+[ RUN      ] URITest.less_than_test
+[       OK ] URITest.less_than_test (0 ms)
+[ RUN      ] URITest.username_test
+[       OK ] URITest.username_test (0 ms)
+[ RUN      ] URITest.pasword_test
+[       OK ] URITest.pasword_test (0 ms)
+[ RUN      ] URITest.hierarchical_part_test
+[       OK ] URITest.hierarchical_part_test (0 ms)
+[ RUN      ] URITest.partial_hierarchical_part_test
+[       OK ] URITest.partial_hierarchical_part_test (0 ms)
+[ RUN      ] URITest.authority_test
+[       OK ] URITest.authority_test (0 ms)
+[ RUN      ] URITest.partial_authority_test
+[       OK ] URITest.partial_authority_test (0 ms)
+[ RUN      ] URITest.http_query_map_test
+[       OK ] URITest.http_query_map_test (0 ms)
+[ RUN      ] URITest.xmpp_query_map_test
+[       OK ] URITest.xmpp_query_map_test (1 ms)
+[ RUN      ] URITest.range_test
+[       OK ] URITest.range_test (0 ms)
+[ RUN      ] URITest.issue_67_test
+[       OK ] URITest.issue_67_test (0 ms)
+[ RUN      ] URITest.from_parts_1
+[       OK ] URITest.from_parts_1 (0 ms)
+[ RUN      ] URITest.from_parts_2
+[       OK ] URITest.from_parts_2 (0 ms)
+[ RUN      ] URITest.from_parts_3
+[       OK ] URITest.from_parts_3 (0 ms)
+[ RUN      ] URITest.from_parts_4
+[       OK ] URITest.from_parts_4 (1 ms)
+[ RUN      ] URITest.issue_104_test
+[       OK ] URITest.issue_104_test (0 ms)
+[ RUN      ] URITest.uri_set_test
+[       OK ] URITest.uri_set_test (0 ms)
+[ RUN      ] URITest.uri_unordered_set_test
+[       OK ] URITest.uri_unordered_set_test (0 ms)
+[ RUN      ] URITest.issue_161_test
+[       OK ] URITest.issue_161_test (0 ms)
+[ RUN      ] URITest.issue_364_test
+[       OK ] URITest.issue_364_test (0 ms)
+[ RUN      ] URITest.issue_447_test
+[       OK ] URITest.issue_447_test (0 ms)
+[ RUN      ] URITest.issue_499_test
+[       OK ] URITest.issue_499_test (0 ms)
+[----------] 71 tests from URITest (7 ms total)
+
+[----------] Global test environment tear-down
+[==========] 71 tests from 1 test case ran. (7 ms total)
+[  PASSED  ] 71 tests.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-uri_test" end time: Nov 07 23:16 EST
+"cpp-netlib-uri_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/18 Testing: cpp-netlib-uri_builder_test
+5/18 Test: cpp-netlib-uri_builder_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-uri_builder_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/uri
+"cpp-netlib-uri_builder_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 11 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 11 tests from BuilderTest
+[ RUN      ] BuilderTest.Simple
+[       OK ] BuilderTest.Simple (1 ms)
+[ RUN      ] BuilderTest.Full
+[       OK ] BuilderTest.Full (1 ms)
+[ RUN      ] BuilderTest.Port
+[       OK ] BuilderTest.Port (0 ms)
+[ RUN      ] BuilderTest.EncodedPath
+[       OK ] BuilderTest.EncodedPath (0 ms)
+[ RUN      ] BuilderTest.Query
+[       OK ] BuilderTest.Query (0 ms)
+[ RUN      ] BuilderTest.TwoQueries
+[       OK ] BuilderTest.TwoQueries (0 ms)
+[ RUN      ] BuilderTest.Fragment
+[       OK ] BuilderTest.Fragment (1 ms)
+[ RUN      ] BuilderTest.FromBase
+[       OK ] BuilderTest.FromBase (0 ms)
+[ RUN      ] BuilderTest.EncodedNull
+[       OK ] BuilderTest.EncodedNull (0 ms)
+[ RUN      ] BuilderTest.MailtoScheme
+[       OK ] BuilderTest.MailtoScheme (0 ms)
+[ RUN      ] BuilderTest.IPv4
+[       OK ] BuilderTest.IPv4 (0 ms)
+[----------] 11 tests from BuilderTest (3 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 1 test case ran. (3 ms total)
+[  PASSED  ] 11 tests.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-uri_builder_test" end time: Nov 07 23:16 EST
+"cpp-netlib-uri_builder_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/18 Testing: cpp-netlib-uri_builder_stream_test
+6/18 Test: cpp-netlib-uri_builder_stream_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-uri_builder_stream_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/uri
+"cpp-netlib-uri_builder_stream_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 12 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 12 tests from BuilderTest
+[ RUN      ] BuilderTest.Simple
+[       OK ] BuilderTest.Simple (2 ms)
+[ RUN      ] BuilderTest.Full
+[       OK ] BuilderTest.Full (0 ms)
+[ RUN      ] BuilderTest.Port
+[       OK ] BuilderTest.Port (0 ms)
+[ RUN      ] BuilderTest.EncodedPath
+[       OK ] BuilderTest.EncodedPath (1 ms)
+[ RUN      ] BuilderTest.Query
+[       OK ] BuilderTest.Query (0 ms)
+[ RUN      ] BuilderTest.TwoQueries
+[       OK ] BuilderTest.TwoQueries (0 ms)
+[ RUN      ] BuilderTest.Fragment
+[       OK ] BuilderTest.Fragment (1 ms)
+[ RUN      ] BuilderTest.FromBase
+[       OK ] BuilderTest.FromBase (0 ms)
+[ RUN      ] BuilderTest.Scheme
+[       OK ] BuilderTest.Scheme (0 ms)
+[ RUN      ] BuilderTest.HTTPSScheme
+[       OK ] BuilderTest.HTTPSScheme (0 ms)
+[ RUN      ] BuilderTest.EncodedNull
+[       OK ] BuilderTest.EncodedNull (0 ms)
+[ RUN      ] BuilderTest.MailtoScheme
+[       OK ] BuilderTest.MailtoScheme (0 ms)
+[----------] 12 tests from BuilderTest (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 12 tests from 1 test case ran. (4 ms total)
+[  PASSED  ] 12 tests.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-uri_builder_stream_test" end time: Nov 07 23:16 EST
+"cpp-netlib-uri_builder_stream_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/18 Testing: cpp-netlib-uri_encoding_test
+7/18 Test: cpp-netlib-uri_encoding_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-uri_encoding_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/uri
+"cpp-netlib-uri_encoding_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 5 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 5 tests from URIEncodingTest
+[ RUN      ] URIEncodingTest.Encoding
+[       OK ] URIEncodingTest.Encoding (0 ms)
+[ RUN      ] URIEncodingTest.Decoding
+[       OK ] URIEncodingTest.Decoding (0 ms)
+[ RUN      ] URIEncodingTest.EncodingMultibyte
+[       OK ] URIEncodingTest.EncodingMultibyte (0 ms)
+[ RUN      ] URIEncodingTest.DecodingMultibyte
+[       OK ] URIEncodingTest.DecodingMultibyte (0 ms)
+[ RUN      ] URIEncodingTest.DecodingThrows
+[       OK ] URIEncodingTest.DecodingThrows (1 ms)
+[----------] 5 tests from URIEncodingTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 1 test case ran. (1 ms total)
+[  PASSED  ] 5 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-uri_encoding_test" end time: Nov 07 23:16 EST
+"cpp-netlib-uri_encoding_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/18 Testing: cpp-netlib-relative_uri_test
+8/18 Test: cpp-netlib-relative_uri_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-relative_uri_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/uri
+"cpp-netlib-relative_uri_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from RelativeURITest
+[ RUN      ] RelativeURITest.NotSupported
+[       OK ] RelativeURITest.NotSupported (2 ms)
+[----------] 1 test from RelativeURITest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (2 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-relative_uri_test" end time: Nov 07 23:16 EST
+"cpp-netlib-relative_uri_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/18 Testing: cpp-netlib-http-response_incremental_parser_test
+9/18 Test: cpp-netlib-http-response_incremental_parser_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-response_incremental_parser_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-response_incremental_parser_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 8 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from IncrementalResponseParserTest
+[ RUN      ] IncrementalResponseParserTest.Constructor
+[       OK ] IncrementalResponseParserTest.Constructor (0 ms)
+[ RUN      ] IncrementalResponseParserTest.ParseHTTPVersion
+PARSED: HTTP/1.0  state=9
+PARSED: HTTP/1.1  state=9
+PARSED: HTTP state=4
+PARSED: HTTP/0.9  state=9
+[       OK ] IncrementalResponseParserTest.ParseHTTPVersion (0 ms)
+[----------] 2 tests from IncrementalResponseParserTest (0 ms total)
+
+[----------] 3 tests from IncrementalResponseEOLTypeTest/0, where TypeParam = crlf
+[ RUN      ] IncrementalResponseEOLTypeTest/0.ParseStatus
+PARSED: 200  state=11
+PARSED: 200 state=10
+PARSED: 200 state=11
+[       OK ] IncrementalResponseEOLTypeTest/0.ParseStatus (0 ms)
+[ RUN      ] IncrementalResponseEOLTypeTest/0.ParseStatusMessage
+PARSED: OK
+ state=14
+PARSED: OK
+ state=14
+PARSED: Internal Server Error
+ state=14
+PARSED: 
+ state=14
+PARSED: 한글메시지
+ state=14
+[       OK ] IncrementalResponseEOLTypeTest/0.ParseStatusMessage (0 ms)
+[ RUN      ] IncrementalResponseEOLTypeTest/0.ParseHTTPHeaders
+PARSED: Server: Foo
+ state=19
+PARSED: Content-Type: application/json
+ state=19
+PARSED:  Server: Foo
+ state=19
+PARSED:  Content-Type: application/json
+ state=19
+PARSED: _Server: Foo
+ state=19
+PARSED: _Content-Type: application/json
+ state=19
+PARSED: Server: 
+ state=19
+PARSED: Content-Type: application/json
+ state=19
+PARSED: Server: 서버
+ state=19
+PARSED: Content-Type: application/json
+ state=19
+PARSED: Content-Type: text/html;
+ state=19
+PARSED: charset=utf-8
+ state=19
+[       OK ] IncrementalResponseEOLTypeTest/0.ParseHTTPHeaders (0 ms)
+[----------] 3 tests from IncrementalResponseEOLTypeTest/0 (0 ms total)
+
+[----------] 3 tests from IncrementalResponseEOLTypeTest/1, where TypeParam = lf
+[ RUN      ] IncrementalResponseEOLTypeTest/1.ParseStatus
+PARSED: 200  state=11
+PARSED: 200 state=10
+PARSED: 200 state=11
+[       OK ] IncrementalResponseEOLTypeTest/1.ParseStatus (0 ms)
+[ RUN      ] IncrementalResponseEOLTypeTest/1.ParseStatusMessage
+PARSED: OK
+ state=14
+PARSED: OK
+ state=14
+PARSED: Internal Server Error
+ state=14
+PARSED: 
+ state=14
+PARSED: 한글메시지
+ state=14
+[       OK ] IncrementalResponseEOLTypeTest/1.ParseStatusMessage (1 ms)
+[ RUN      ] IncrementalResponseEOLTypeTest/1.ParseHTTPHeaders
+PARSED: Server: Foo
+ state=19
+PARSED: Content-Type: application/json
+ state=19
+PARSED:  Server: Foo
+ state=19
+PARSED:  Content-Type: application/json
+ state=19
+PARSED: _Server: Foo
+ state=19
+PARSED: _Content-Type: application/json
+ state=19
+PARSED: Server: 
+ state=19
+PARSED: Content-Type: application/json
+ state=19
+PARSED: Server: 서버
+ state=19
+PARSED: Content-Type: application/json
+ state=19
+PARSED: Content-Type: text/html;
+ state=19
+PARSED: charset=utf-8
+ state=19
+[       OK ] IncrementalResponseEOLTypeTest/1.ParseHTTPHeaders (0 ms)
+[----------] 3 tests from IncrementalResponseEOLTypeTest/1 (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 3 test cases ran. (1 ms total)
+[  PASSED  ] 8 tests.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-response_incremental_parser_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-response_incremental_parser_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/18 Testing: cpp-netlib-http-request_incremental_parser_test
+10/18 Test: cpp-netlib-http-request_incremental_parser_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-request_incremental_parser_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-request_incremental_parser_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 5 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 5 tests from IncrementalRequestParserTest
+[ RUN      ] IncrementalRequestParserTest.Constructor
+[       OK ] IncrementalRequestParserTest.Constructor (0 ms)
+[ RUN      ] IncrementalRequestParserTest.ParseMethod
+PARSED: GET  [state:2] 
+PARSED: g [state:0] 
+[       OK ] IncrementalRequestParserTest.ParseMethod (0 ms)
+[ RUN      ] IncrementalRequestParserTest.ParseURI
+PARSED: GET /  [state:4] 
+PARSED: GET /	 [state:3] 
+[       OK ] IncrementalRequestParserTest.ParseURI (0 ms)
+[ RUN      ] IncrementalRequestParserTest.ParseHTTPVersion
+PARSED: GET / HTTP/1.1
+ [state:14] 
+PARSED: GET / HTTP  [state:8] 
+[       OK ] IncrementalRequestParserTest.ParseHTTPVersion (0 ms)
+[ RUN      ] IncrementalRequestParserTest.ParseHTTPHeaders
+PARSED: GET / HTTP/1.1
+Host: cpp-netlib.org
+
+ [state:21] 
+PARSED: GET / HTTP/1.1
+Host: cpp-netlib.org
+Connection: close
+
+ [state:21] 
+[       OK ] IncrementalRequestParserTest.ParseHTTPHeaders (0 ms)
+[----------] 5 tests from IncrementalRequestParserTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 1 test case ran. (0 ms total)
+[  PASSED  ] 5 tests.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-request_incremental_parser_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-request_incremental_parser_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/18 Testing: cpp-netlib-http-request_linearize_test
+11/18 Test: cpp-netlib-http-request_linearize_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-request_linearize_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-request_linearize_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 8 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from LinearizeTest/0, where TypeParam = boost::network::http::tags::http_default_8bit_tcp_resolve
+[ RUN      ] LinearizeTest/0.LinearizeRequest
+[       OK ] LinearizeTest/0.LinearizeRequest (1 ms)
+[ RUN      ] LinearizeTest/0.OverrideHeaders
+[       OK ] LinearizeTest/0.OverrideHeaders (0 ms)
+[----------] 2 tests from LinearizeTest/0 (1 ms total)
+
+[----------] 2 tests from LinearizeTest/1, where TypeParam = boost::network::http::tags::http_default_8bit_udp_resolve
+[ RUN      ] LinearizeTest/1.LinearizeRequest
+[       OK ] LinearizeTest/1.LinearizeRequest (0 ms)
+[ RUN      ] LinearizeTest/1.OverrideHeaders
+[       OK ] LinearizeTest/1.OverrideHeaders (0 ms)
+[----------] 2 tests from LinearizeTest/1 (0 ms total)
+
+[----------] 2 tests from LinearizeTest/2, where TypeParam = boost::network::http::tags::http_async_8bit_tcp_resolve
+[ RUN      ] LinearizeTest/2.LinearizeRequest
+[       OK ] LinearizeTest/2.LinearizeRequest (0 ms)
+[ RUN      ] LinearizeTest/2.OverrideHeaders
+[       OK ] LinearizeTest/2.OverrideHeaders (0 ms)
+[----------] 2 tests from LinearizeTest/2 (0 ms total)
+
+[----------] 2 tests from LinearizeTest/3, where TypeParam = boost::network::http::tags::http_async_8bit_udp_resolve
+[ RUN      ] LinearizeTest/3.LinearizeRequest
+[       OK ] LinearizeTest/3.LinearizeRequest (0 ms)
+[ RUN      ] LinearizeTest/3.OverrideHeaders
+[       OK ] LinearizeTest/3.OverrideHeaders (0 ms)
+[----------] 2 tests from LinearizeTest/3 (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 4 test cases ran. (1 ms total)
+[  PASSED  ] 8 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-request_linearize_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-request_linearize_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/18 Testing: cpp-netlib-http-client_constructor_test
+12/18 Test: cpp-netlib-http-client_constructor_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-client_constructor_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-client_constructor_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 8 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from HTTPClientTest/0, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_tcp_resolve, 1u, 0u>
+[ RUN      ] HTTPClientTest/0.Constructors
+[       OK ] HTTPClientTest/0.Constructors (0 ms)
+[ RUN      ] HTTPClientTest/0.ConstructorsWithOptions
+[       OK ] HTTPClientTest/0.ConstructorsWithOptions (0 ms)
+[----------] 2 tests from HTTPClientTest/0 (0 ms total)
+
+[----------] 2 tests from HTTPClientTest/1, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_tcp_resolve, 1u, 1u>
+[ RUN      ] HTTPClientTest/1.Constructors
+[       OK ] HTTPClientTest/1.Constructors (0 ms)
+[ RUN      ] HTTPClientTest/1.ConstructorsWithOptions
+[       OK ] HTTPClientTest/1.ConstructorsWithOptions (0 ms)
+[----------] 2 tests from HTTPClientTest/1 (0 ms total)
+
+[----------] 2 tests from HTTPClientTest/2, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_udp_resolve, 1u, 0u>
+[ RUN      ] HTTPClientTest/2.Constructors
+[       OK ] HTTPClientTest/2.Constructors (0 ms)
+[ RUN      ] HTTPClientTest/2.ConstructorsWithOptions
+[       OK ] HTTPClientTest/2.ConstructorsWithOptions (1 ms)
+[----------] 2 tests from HTTPClientTest/2 (1 ms total)
+
+[----------] 2 tests from HTTPClientTest/3, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_udp_resolve, 1u, 1u>
+[ RUN      ] HTTPClientTest/3.Constructors
+[       OK ] HTTPClientTest/3.Constructors (0 ms)
+[ RUN      ] HTTPClientTest/3.ConstructorsWithOptions
+[       OK ] HTTPClientTest/3.ConstructorsWithOptions (0 ms)
+[----------] 2 tests from HTTPClientTest/3 (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 4 test cases ran. (1 ms total)
+[  PASSED  ] 8 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-client_constructor_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-client_constructor_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/18 Testing: cpp-netlib-http-client_get_test
+13/18 Test: cpp-netlib-http-client_get_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-client_get_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-client_get_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 8 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from HTTPClientTest/0, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_tcp_resolve, 1u, 0u>
+[ RUN      ] HTTPClientTest/0.GetTest
+libc++abi.dylib: terminating with uncaught exception of type boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<std::__1::system_error> >: bind: Invalid argument
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Failed.
+"cpp-netlib-http-client_get_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-client_get_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/18 Testing: cpp-netlib-http-client_get_different_port_test
+14/18 Test: cpp-netlib-http-client_get_different_port_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-client_get_different_port_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-client_get_different_port_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 1 test from HTTPClientTest/0, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_tcp_resolve, 1u, 0u>
+[ RUN      ] HTTPClientTest/0.GetDifferentPort
+libc++abi.dylib: terminating with uncaught exception of type boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<std::__1::system_error> >: bind: Invalid argument
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Failed.
+"cpp-netlib-http-client_get_different_port_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-client_get_different_port_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/18 Testing: cpp-netlib-http-client_get_streaming_test
+15/18 Test: cpp-netlib-http-client_get_streaming_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-client_get_streaming_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-client_get_streaming_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 1 test from HTTPClientTest/0, where TypeParam = boost::network::http::basic_client<boost::network::http::tags::http_default_8bit_tcp_resolve, 1u, 0u>
+[ RUN      ] HTTPClientTest/0.GetStreamingTest
+libc++abi.dylib: terminating with uncaught exception of type boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<std::__1::system_error> >: bind: Invalid argument
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Failed.
+"cpp-netlib-http-client_get_streaming_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-client_get_streaming_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/18 Testing: cpp-netlib-http-server_constructor_test
+16/18 Test: cpp-netlib-http-server_constructor_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-server_constructor_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-server_constructor_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 3 tests from 2 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from HTTPServerTest
+[ RUN      ] HTTPServerTest.MinimalConstructor
+[       OK ] HTTPServerTest.MinimalConstructor (1 ms)
+[ RUN      ] HTTPServerTest.WithIOServiceParameter
+[       OK ] HTTPServerTest.WithIOServiceParameter (0 ms)
+[----------] 2 tests from HTTPServerTest (1 ms total)
+
+[----------] 1 test from HTTPServerTes
+[ RUN      ] HTTPServerTes.ThrowsOnFailure
+[       OK ] HTTPServerTes.ThrowsOnFailure (0 ms)
+[----------] 1 test from HTTPServerTes (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 2 test cases ran. (1 ms total)
+[  PASSED  ] 3 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-server_constructor_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-server_constructor_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/18 Testing: cpp-netlib-http-server_header_parser_test
+17/18 Test: cpp-netlib-http-server_header_parser_test
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-server_header_parser_test"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-server_header_parser_test" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from ServerHeaderParserTest
+[ RUN      ] ServerHeaderParserTest.ParseHeaders
+utf8 header parsed, name: X-Utf8-Test-Header, value: Rūdolfs[       OK ] ServerHeaderParserTest.ParseHeaders (0 ms)
+[----------] 1 test from ServerHeaderParserTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-server_header_parser_test" end time: Nov 07 23:16 EST
+"cpp-netlib-http-server_header_parser_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/18 Testing: cpp-netlib-http-server_async_run_stop_concurrency
+18/18 Test: cpp-netlib-http-server_async_run_stop_concurrency
+Command: "/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/tests/cpp-netlib-http-server_async_run_stop_concurrency"
+Directory: /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/network_library/build/libs/network/test/http
+"cpp-netlib-http-server_async_run_stop_concurrency" start time: Nov 07 23:16 EST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.34 sec
+----------------------------------------------------------
+Test Passed.
+"cpp-netlib-http-server_async_run_stop_concurrency" end time: Nov 07 23:16 EST
+"cpp-netlib-http-server_async_run_stop_concurrency" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Nov 07 23:16 EST
