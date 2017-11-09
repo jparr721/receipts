@@ -1,0 +1,3 @@
+/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/CMakeFiles/rebuild_cache.dir
+/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/CMakeFiles/edit_cache.dir
+/Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/CMakeFiles/rm.dir
