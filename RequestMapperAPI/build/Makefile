@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI
+CMAKE_BINARY_DIR = /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/CMakeFiles /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/build/CMakeFiles /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Jarred/Desktop/BADMEAT-MASTER/Badmeat.middleware/RequestMapperAPI/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
