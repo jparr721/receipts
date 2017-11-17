@@ -19,4 +19,10 @@ curl/curl.h
 -
 string
 -
+map
+-
+algorithm
+-
+fstream
+-
 
