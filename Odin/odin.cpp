@@ -1,6 +1,6 @@
-#include "requestMapper.hpp"
+#include "Odin.hpp"
 
-size_t RequestMapper::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
+size_t Odin::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
 	size_t newLength = size*nmemb;
 	size_t oldLength = s->size();
 	try {
@@ -16,7 +16,7 @@ size_t RequestMapper::curlWriteCallback(void* contents, size_t size, size_t nmem
 }
 
 template <class KTy, class Ty>
-void RequestMapper::mapStatsToFile(std::map<KTy, Ty> map, std::string fileName) {
+void Odin::mapStatsToFile(std::map<KTy, Ty> map, std::string fileName) {
 	std::ofstream outFile;
 	outFile.open(fileName);
 	outFile << "Name " << " Frequency" << std::endl;
@@ -24,14 +24,14 @@ void RequestMapper::mapStatsToFile(std::map<KTy, Ty> map, std::string fileName) 
 		outFile << it->first << " : " << it->second << "\n";
 }
 
-std::map RequestMapper::exportToHashmap(std::string input) {
+std::map Odin::exportToHashmap(std::string input) {
 	std::map<std::string, unsigned int> foodFrequency;
 }
 
 /**
 * Cleans JSON formatting off of the input
 **/
-std::string RequestMapper::cleanUpData(std::string input) {
+std::string Odin::cleanUpData(std::string input) {
 	// Find location of first square bracket
 	size_t position = input.find("[");
 
@@ -54,7 +54,7 @@ std::string RequestMapper::cleanUpData(std::string input) {
 }
 
 // Send a GET request to API to retreive image
-void RequestMapper::retreiveData(std::string URL) {
+void Odin::retreiveData(std::string URL) {
 	CURL *curl;
  	CURLcode res;
  	std::map<std::string, unsigned int> frequencyMap;
@@ -88,8 +88,8 @@ void RequestMapper::retreiveData(std::string URL) {
 	curl_global_cleanup();
 }
 
-// Submit a post request to API link to send data
-void RequestMapper::postData() {
+// Submit a post request to API link to send dat
+void Odin::postData() {
 	CURL *curl;
 	CURLcode res;
 
@@ -107,7 +107,7 @@ void RequestMapper::postData() {
 
 
 int main(void) {
-	RequestMapper rm;
+	Odin rm;
 	rm.retreiveData("http://104.236.200.91/index.php/food/names");
 	return 0;
 }

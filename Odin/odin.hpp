@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <fstream>
 
-class RequestMapper {
+class Odin {
 	public:
 		void retreiveData(std::string);
 		void postData();
