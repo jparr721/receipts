@@ -1,6 +1,8 @@
-#include "Odin.hpp"
+#include <Odin/odin.hpp>
 
-size_t Odin::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
+Odin::Odin::~Odin() {}
+
+size_t Odin::Odin::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
 	size_t newLength = size*nmemb;
 	size_t oldLength = s->size();
 	try {
@@ -16,7 +18,7 @@ size_t Odin::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::s
 }
 
 template <class KTy, class Ty>
-void Odin::mapStatsToFile(std::map<KTy, Ty> map, std::string fileName) {
+void Odin::Odin::mapStatsToFile(std::map<KTy, Ty> map, std::string fileName) {
 	std::ofstream outFile;
 	outFile.open(fileName);
 	outFile << "Name " << " Frequency" << std::endl;
@@ -31,7 +33,7 @@ std::map Odin::exportToHashmap(std::string input) {
 /**
 * Cleans JSON formatting off of the input
 **/
-std::string Odin::cleanUpData(std::string input) {
+std::string Odin::Odin::cleanUpData(std::string input) {
 	// Find location of first square bracket
 	size_t position = input.find("[");
 
@@ -54,7 +56,7 @@ std::string Odin::cleanUpData(std::string input) {
 }
 
 // Send a GET request to API to retreive image
-void Odin::retreiveData(std::string URL) {
+void Odin::Odin::retreiveData(std::string URL) {
 	CURL *curl;
  	CURLcode res;
  	std::map<std::string, unsigned int> frequencyMap;
@@ -89,7 +91,7 @@ void Odin::retreiveData(std::string URL) {
 }
 
 // Submit a post request to API link to send dat
-void Odin::postData() {
+void Odin::Odin::postData() {
 	CURL *curl;
 	CURLcode res;
 
