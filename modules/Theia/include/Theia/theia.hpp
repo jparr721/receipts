@@ -8,7 +8,7 @@ namespace Theia{
 	public:
 		Theia();
 		~Theia();
-	}
+	};
 }
 
 #endif //THEIA_THEIA_HPP
