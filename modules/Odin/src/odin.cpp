@@ -107,10 +107,7 @@
 // 	}
 // }
 
-
-int main(void) {
-	// Odin rm;
-	// rm.retreiveData("http://104.236.200.91/index.php/food/names");
-	std::cout << "Hello";
-	return EXIT_SUCCESS;
+void Odin::Odin::out() {
+	std::cout << "Odin is firing" << std::endl;
 }
+

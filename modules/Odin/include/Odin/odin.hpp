@@ -13,6 +13,7 @@ namespace Odin {
 	class Odin {
 		public:
 			~Odin();
+			static void out();
 			
 			// void retreiveData(std::string);
 			// void postData();

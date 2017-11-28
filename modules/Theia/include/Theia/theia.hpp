@@ -8,6 +8,7 @@ namespace Theia{
 	public:
 		Theia();
 		~Theia();
+		static void output();
 	};
 }
 
