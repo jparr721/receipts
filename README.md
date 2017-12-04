@@ -23,7 +23,4 @@ Modular Machine Learning Daemon framework custom written by me to allow for reus
 `make install`
 
 ### Executing
-This program currently has three(3) arguments:
-`<install path>/bin/ast [URL] [USERNAME] [PASSWORD]`
-
-Example: `<install path>/bin/ast imaps://imap.gmail.com username@gmail.com default`
+This program currently doesn't do much on execution, that is being worked on. But hey, it compiles!
