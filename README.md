@@ -1,6 +1,6 @@
 # Zeus v0.4.0
 
-Modular Machine Learning Daemon framework custom written by me to allow for reusable daemons to sit in my linux server and interact with my database. 
+Linux daemon to interact with incoming requests and perform data analysis.
 
 ## Installation
 ### Requirements
