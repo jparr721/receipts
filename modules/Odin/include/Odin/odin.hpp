@@ -15,6 +15,9 @@ namespace Odin {
 		public:
 			~Odin();
 			static void out();
+
+		private:
+			
 	};
 }
 
