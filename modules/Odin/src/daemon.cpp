@@ -1,5 +1,15 @@
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <uninstd.h>
+#include <syslog.h>
+#include <signal.h>
 #include <Odin/daemon.hpp>
 
+int pid_file_descriptor = -1;
 /**
 * Read from the configuration file or 
 * reload the settings.
