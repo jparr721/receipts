@@ -14,10 +14,10 @@ namespace Odin {
 	class Odin {
 		public:
 			~Odin();
-			static void out();
+			void out();
 
 		private:
-			
+
 	};
 }
 

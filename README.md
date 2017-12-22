@@ -23,4 +23,8 @@ Linux daemon to interact with incoming requests and perform data analysis.
 `make install`
 
 ### Executing
-This program currently doesn't do much on execution, that is being worked on. But hey, it compiles!
+If this is your first time installing and compiling this, please run the following:
+* `systemctl daemon-reload`
+* `systemctl start zeus.service`
+
+Right now it only supports start and stop. More is coming.

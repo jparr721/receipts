@@ -1,19 +1,29 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <curl/curl.h>
+#include <map>
+#include <algorithm>
+#include <fstream>
 #include <Theia/theia.hpp>
 
 Theia::Theia::Theia() {}
 Theia::Theia::~Theia() {}
 
 void Theia::Theia::output() {
-	std::cout << "Theia is Firing" << std::endl;
+	std::cout << "Testing Theia Core Functionality: " << std::endl;
+
+	std::string rawJson = Theia::Theia::retreiveData("http://samples.openweathermap.org/data/2.5/weather?q=London&appid=b1b15e88fa797225412429c1c50c122a1");
+	// std::string processedJson = Theia::Theia::removeJson(rawJson, false);
+	std::cout << "Cleaned data: " << rawJson << std::endl;
 }
 
 /**
 * Private helper method to write the curl data to a variable
 
-* @param contents - This value is interset by the curl request
-* @param size - Request size
-* @param nmemb - Allocated memory
-* @param s - The string the data is mapped to 
+* @param void* contents - This value is inserted by the curl request
+* @param size_t size - Request size
+* @param size_t nmemb - Allocated memory
+* @param std::string s - The string the data is mapped to
 * (and allocated space for)
 */
 size_t Theia::Theia::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
@@ -77,40 +87,63 @@ std::string Theia::Theia::removeJson(std::string unformattedString, bool printou
 }
 
 /**
-* Sends a curl GET request to the API and 
+* Sends a curl GET request to the API and
 * returns it as a string.
-* 
+*
 * This code features one parameter
 * @param URL - Takes the API route to be processed
-* @return - This returns the data from the API as 
+* @return - This returns the data from the API as
 * 			a string
 */
 std::string Theia::Theia::retreiveData(std::string URL) {
 	CURL *curl;
  	CURLcode res;
- 
+
 	curl_global_init(CURL_GLOBAL_DEFAULT);
 
 	curl = curl_easy_init();
 	std::string response;
 	if(curl) {
 	curl_easy_setopt(curl, CURLOPT_URL, URL.c_str());
-			
+
 		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L); // for https
 		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L); // for https
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteCallback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
 		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
 
-	/* Perform the request, res will get the return code */ 
+	/* Perform the request, res will get the return code */
 	res = curl_easy_perform(curl);
-	/* Check for errors */ 
+	/* Check for errors */
 	if(res != CURLE_OK)
 	  fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
 
-	/* always cleanup */ 
+	/* always cleanup */
 	curl_easy_cleanup(curl);
 	}
 
 	curl_global_cleanup();
+	return response;
+}
+
+/**
+* Count occurances of all words, will be used for prediction
+*
+* @param input String input to be processed
+*/
+void countOccurences(std::string input) {
+	std::map <std::string, unsigned int> totalOccurances;
+
+	// Remove the JSON formatting, we just want the words.
+	Theia::Theia::removeJson(input);
+
+	if (totalOccurances.find())
+}
+
+void mapStatsToFile(std::string input) {
+	std::ofstream data_file ("user_data");
+
+	data_file << input << std::endl;
+
+	data_file.close();
 }

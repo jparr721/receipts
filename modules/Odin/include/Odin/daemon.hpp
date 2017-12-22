@@ -9,5 +9,6 @@ namespace Odin {
 		int test_conf_file(std::string);
 		void handle_signal(int);
 		void print_usage();
+		void daemonize();
 	};
 }

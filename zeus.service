@@ -1,0 +1,11 @@
+[Unit]
+Description=Data processing daemon for C++
+After=network.target
+
+[Service]
+ExecStart=_install/bin/zeus start
+Type=forking
+PIDfile=/var/spool/postfix/pid/master.pid
+
+[Install]
+WantedBy=default.target

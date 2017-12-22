@@ -3,8 +3,10 @@
 #include <Odin/odin.hpp>
 
 int main(int argc, char* argv[]) {
+	Theia::Theia theia;
+	Odin::Odin odin;
 	std::cout << "Main App Firing" << std::endl;
-	Theia::Theia::output();
-	Odin::Odin::out();
+	theia.output();
+	odin.out();
 	return EXIT_SUCCESS;
 }
