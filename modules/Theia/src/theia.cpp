@@ -4,146 +4,143 @@
 #include <map>
 #include <algorithm>
 #include <fstream>
+#include <iostream>
 #include <Theia/theia.hpp>
 
-Theia::Theia::Theia() {}
-Theia::Theia::~Theia() {}
+namespace Theia {
+	// Theia() {}
+	// ~Theia() {}
 
-void Theia::Theia::output() {
-	std::cout << "Testing Theia Core Functionality: " << std::endl;
-
-	std::string rawJson = Theia::Theia::retreiveData("http://samples.openweathermap.org/data/2.5/weather?q=London&appid=b1b15e88fa797225412429c1c50c122a1");
-	// std::string processedJson = Theia::Theia::removeJson(rawJson, false);
-	std::cout << "Cleaned data: " << rawJson << std::endl;
-}
-
-/**
-* Private helper method to write the curl data to a variable
-
-* @param void* contents - This value is inserted by the curl request
-* @param size_t size - Request size
-* @param size_t nmemb - Allocated memory
-* @param std::string s - The string the data is mapped to
-* (and allocated space for)
-*/
-size_t Theia::Theia::curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
-	size_t newLength = size*nmemb;
-	size_t oldLength = s->size();
-	try {
-		s->resize(oldLength + newLength);
-	} catch (std::bad_alloc &e) {
-		// Temporary error
-		std::cout << "ERROR: Bad memory allocation" << std::endl;
-		return 0;
+	void output() {
+		std::cout << "Does it work?" << std::endl;
 	}
 
-	std::copy((char*)contents, (char*)contents+newLength, s->begin()+oldLength);
-	return size*nmemb;
-}
+	/**
+	* Private helper method to write the curl data to a variable
 
-/**
-* Removes JSON formatting from data retreived via CURL
-*
-* @param unformattedString - The unformatted JSON string
-* @param printout - boolean which will print the formatted
-* string to the console if true.
-*/
-std::string Theia::Theia::removeJson(std::string unformattedString, bool printout) {
-	size_t startOfJson = 0;
+	* @param void* contents - This value is inserted by the curl request
+	* @param size_t size - Request size
+	* @param size_t nmemb - Allocated memory
+	* @param std::string s - The string the data is mapped to
+	* (and allocated space for)
+	*/
+	size_t curlWriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
+		size_t newLength = size*nmemb;
+		size_t oldLength = s->size();
+		try {
+			s->resize(oldLength + newLength);
+		} catch (std::bad_alloc &e) {
+			// Temporary error
+			std::cout << "ERROR: Bad memory allocation" << std::endl;
+			return 0;
+		}
 
-	if (unformattedString.empty()) {
-		return "ERROR: String is empty";
-	}
-	// Remove excess text up to first square bracket if in array format
-	if (unformattedString.find_first_of('[') != 0) {
-		startOfJson = unformattedString.find_first_of('[');
-
-		// Erase everything up to this point
-		unformattedString.erase(0, startOfJson);
-	// If not displayed in Array format
-	} else {
-		startOfJson = unformattedString.find_first_of('{');
-
-		// Once again, erase to the first squggle
-		unformattedString.erase(0, startOfJson);
+		std::copy((char*)contents, (char*)contents+newLength, s->begin()+oldLength);
+		return size*nmemb;
 	}
 
-	// Remove all sorts of excess formatting from the JSON object
-	unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '['), unformattedString.end());
-	unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), ']'), unformattedString.end());
-	unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '{'), unformattedString.end());
-	unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '}'), unformattedString.end());
-	unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '\"'), unformattedString.end());
+	/**
+	* Removes JSON formatting from data retreived via CURL
+	*
+	* @param unformattedString - The unformatted JSON string
+	* @param printout - boolean which will print the formatted
+	* string to the console if true.
+	*/
+	std::string removeJson(std::string unformattedString, bool printout) {
+		size_t startOfJson = 0;
 
-	// Replace the commas with spaces, it looks cleaner
-	std::replace(unformattedString.begin(), unformattedString.end(), ',', ' ');
+		if (unformattedString.empty()) {
+			return "ERROR: String is empty";
+		}
+		// Remove excess text up to first square bracket if in array format
+		if (unformattedString.find_first_of('[') != 0) {
+			startOfJson = unformattedString.find_first_of('[');
 
-	if (printout) {
-		std::cout << unformattedString << std::endl;
-		return unformattedString;
-	} else {
-		return unformattedString;
-	}
-}
+			// Erase everything up to this point
+			unformattedString.erase(0, startOfJson);
+		// If not displayed in Array format
+		} else {
+			startOfJson = unformattedString.find_first_of('{');
 
-/**
-* Sends a curl GET request to the API and
-* returns it as a string.
-*
-* This code features one parameter
-* @param URL - Takes the API route to be processed
-* @return - This returns the data from the API as
-* 			a string
-*/
-std::string Theia::Theia::retreiveData(std::string URL) {
-	CURL *curl;
- 	CURLcode res;
+			// Once again, erase to the first squggle
+			unformattedString.erase(0, startOfJson);
+		}
 
-	curl_global_init(CURL_GLOBAL_DEFAULT);
+		// Remove all sorts of excess formatting from the JSON object
+		unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '['), unformattedString.end());
+		unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), ']'), unformattedString.end());
+		unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '{'), unformattedString.end());
+		unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '}'), unformattedString.end());
+		unformattedString.erase(std::remove(unformattedString.begin(), unformattedString.end(), '\"'), unformattedString.end());
 
-	curl = curl_easy_init();
-	std::string response;
-	if(curl) {
-	curl_easy_setopt(curl, CURLOPT_URL, URL.c_str());
+		// Replace the commas with spaces, it looks cleaner
+		std::replace(unformattedString.begin(), unformattedString.end(), ',', ' ');
 
-		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L); // for https
-		curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L); // for https
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteCallback);
-		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
-
-	/* Perform the request, res will get the return code */
-	res = curl_easy_perform(curl);
-	/* Check for errors */
-	if(res != CURLE_OK)
-	  fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
-
-	/* always cleanup */
-	curl_easy_cleanup(curl);
+		if (printout) {
+			std::cout << unformattedString << std::endl;
+			return unformattedString;
+		} else {
+			return unformattedString;
+		}
 	}
 
-	curl_global_cleanup();
-	return response;
-}
+	/**
+	* Sends a curl GET request to the API and
+	* returns it as a string.
+	*
+	* This code features one parameter
+	* @param URL - Takes the API route to be processed
+	* @return - This returns the data from the API as
+	* 			a string
+	*/
+	std::string retreiveData(std::string URL) {
+		CURL *curl;
+	 	CURLcode res;
 
-/**
-* Count occurances of all words, will be used for prediction
-*
-* @param input String input to be processed
-*/
-void countOccurences(std::string input) {
-	std::map <std::string, unsigned int> totalOccurances;
+		curl_global_init(CURL_GLOBAL_DEFAULT);
 
-	// Remove the JSON formatting, we just want the words.
-	Theia::Theia::removeJson(input);
+		curl = curl_easy_init();
+		std::string response;
+		if(curl) {
+		curl_easy_setopt(curl, CURLOPT_URL, URL.c_str());
 
-	if (totalOccurances.find())
-}
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L); // for https
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L); // for https
+			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curlWriteCallback);
+			curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+			curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
 
-void mapStatsToFile(std::string input) {
-	std::ofstream data_file ("user_data");
+		/* Perform the request, res will get the return code */
+		res = curl_easy_perform(curl);
+		/* Check for errors */
+		if(res != CURLE_OK)
+		  fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
 
-	data_file << input << std::endl;
+		/* always cleanup */
+		curl_easy_cleanup(curl);
+		}
 
-	data_file.close();
+		curl_global_cleanup();
+		return response;
+	}
+
+	/**
+	* Count occurances of all words, will be used for prediction
+	*
+	* @param input String input to be processed
+	*/
+	void countOccurences(std::string input) {
+		std::map <std::string, unsigned int> totalOccurances;
+
+		// Remove the JSON formatting, we just want the words.
+
+	}
+
+	void mapStatsToFile(std::string input) {
+		std::ofstream data_file ("user_data");
+
+		data_file << input << std::endl;
+
+		data_file.close();
+	}
 }

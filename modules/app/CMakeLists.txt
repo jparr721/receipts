@@ -7,7 +7,7 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-	Odin
+	Theia
 )
 
 install(TARGETS ${PROJECT_NAME}

@@ -18,5 +18,4 @@ find_package(CURL REQUIRED)
 enable_testing()
 
 add_subdirectory(Theia)
-add_subdirectory(Odin) 
 add_subdirectory(app)
