@@ -3,7 +3,8 @@
 #include <string>
 
 
-namespace Theia{
-	class Theia{
-	};
-}
+class Theia{
+	public:
+		Theia();
+		void output();
+};

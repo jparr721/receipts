@@ -1,9 +1,9 @@
 #include <iostream>
-#include <Theia/theia.hpp>
+#include "../../Theia/src/theia.hpp"
 
 int main(int argc, char* argv[]) {
-	Theia::Theia theia;
+	Theia th;
+	th.output();
 	std::cout << "Main App Firing" << std::endl;
-	theia.output();
 	return EXIT_SUCCESS;
 }
