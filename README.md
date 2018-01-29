@@ -1,30 +1,19 @@
-# Zeus v0.4.0
+# Zeus v1.0.0
 
-Linux daemon to interact with incoming requests and perform data analysis.
+Golang Daemon
 
 ## Installation
 ### Requirements
-* CMake >= 3.2
-* Curl
-* C++11
-* OpenCV __(for now)__
+* Go version 1.9
 
 ### Compilation
-`cd <project directory>`
-
-`mkdir build`
-
-`cd build`
-
-`cmake -DCMAKE_INSTALL_PREFIX=../_install ../modules/`
-
-`make`
-
-`make install`
+* Navigate to desired directory
+* `git clone https://github.com/jparr721/Zeus.git /your-directory`
+* Run `go get ./...` 
+* Interactions `Zeus start | stop | reload | install | remove | status`
 
 ### Executing
 If this is your first time installing and compiling this, please run the following:
 * `systemctl daemon-reload`
-* `systemctl start zeus.service`
+* `systemctl start Zeus`
 
-Right now it only supports start and stop. More is coming.
