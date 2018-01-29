@@ -1,10 +1,12 @@
 # Zeus v1.0.0
 
-Golang Daemon
+Golang Daemon to accept requests and execute some python code to do some magic.
 
 ## Installation
 ### Requirements
 * Go version 1.9
+* PyTesseract 0.18
+* Python 3
 
 ### Compilation
 * Navigate to desired directory
