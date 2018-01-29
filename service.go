@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -17,6 +18,8 @@ const (
 )
 
 var stdlog, errlog *log.Logger
+
+var dependencies = []string{"dummy.service"}
 
 type service struct {
 	daemon.Daemon
@@ -100,5 +103,16 @@ func initDaemon() {
 }
 
 func main() {
-
+	srv, err := daemon.New(name, description, dependencies...)
+	if err != nil {
+		errlog.Println("Error: ", err)
+		os.Exit(1)
+	}
+	service := &service{srv}
+	status, err := service.manageDaemon()
+	if err != nil {
+		errlog.Println(status, "\nError: ", err)
+		os.Exit(1)
+	}
+	fmt.Println(status)
 }
