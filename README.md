@@ -7,6 +7,7 @@ Golang Daemon to accept requests and execute some python code to do some magic.
 * Go version 1.9
 * PyTesseract 0.18
 * Python 3
+* PIL (or Pillow)
 
 ### Compilation
 * Navigate to desired directory
