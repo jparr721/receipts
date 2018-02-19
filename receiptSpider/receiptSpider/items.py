@@ -7,8 +7,7 @@
 
 import scrapy
 
-
 class ReceiptspiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+	receipUrl = scrapy.Field()
+	store = scrapy.Field()
+	data = scrapy.Field()
