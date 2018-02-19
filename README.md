@@ -8,4 +8,7 @@ Grocery store food classifier.
 * Python 3
 * PIL (or Pillow)
 
+### Compatible Stores
+* Walmart
+
 
