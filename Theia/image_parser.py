@@ -4,9 +4,15 @@ import pytesseract
 import requests
 import platform
 import sys
+import argparse
 
-today = datetime.now().month() + "/" + datetime.now().day() + "/" +datetime.now().year()
-walmart_key = "zcnamdfwjd7udf7nfv7ftrdw"
+parser = argparse.ArgumentParser(description='Receipt-Based product manager')
+parser.add_argument('-V', '--version', action='version', version='%(prog)s 1.0')
+
+def initialize():
+	today = datetime.now().month() + "/" + datetime.now().day() + "/" +datetime.now().year()
+	walmart_key = "zcnamdfwjd7udf7nfv7ftrdw"
+	stores = ['Walmart']
 
 if platform.system() == "Linux":
 	# For arch linux
@@ -14,12 +20,6 @@ if platform.system() == "Linux":
 else:
 	# For OSX
 	pytesseract.pytesseract.tesseract_cmd = "/usr/local/bin/tesseract"
-
-#Make this static for now. It will be passed as a command line input later
-store = "Walmart"
-
-# Grab the receipt info
-#print(pytesseract.image_to_string(Image.open('test_receipt.jpg'), lang="eng"))
 
 def generate_logfile(filetype, data, name):
 	log = filetype + ":" + name
@@ -31,20 +31,23 @@ def acquire_data(receipt_name):
 	print("Extracting receipt info...")
 	unprocessed_data = pytesseract.image_to_string(Image.open(receipt_name), lang="eng")
 	print("Unprocessed data gathered")
-#print(unprocessed_data)
 	extract_item_codes(unprocessed_data)
 
 def extract_item_codes(data):
 	item_codes = list()
 	for s in data.split(): 
-		if s.isdigit() and len(s) > 4:
+		if s.isdigit() and len(s) > 9:
 			item_codes.append(s)
 		else:
 			continue
-	for code in item_codes:
-		print(code+"\n")
+	for store in stores:
+		if store in data:
+			if store == 'Walmart':
+				walmart_item_lookup(item_codes)
+		else:
+			print("Error! store not recognized!")
 
-def walmart_item_lookup(data, the_juice):
+def walmart_item_lookup(the_juice):
 	# The juice is the codes
 	print("Fetching data from Walmart API")
 	item_names = {}
