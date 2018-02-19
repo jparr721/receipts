@@ -1,6 +1,6 @@
 # Zeus v1.0.0
 
-Python image data analyzer.
+Grocery store food classifier.
 
 ## Installation
 ### Requirements
