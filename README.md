@@ -1,4 +1,4 @@
-# Zeus v1.0.0
+# Receipt-Parser v1.0.0
 
 Grocery store food classifier.
 
