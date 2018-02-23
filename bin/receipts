@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+from PIL import Image
+from datetime import datetime
+from pathlib import Path
+import urllib2
+import pytesseract
+import requests
+import platform
+import sys
+import argparse
+
+PARSER_DATA_DIR = Path.home() / '.receipts'
+WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
+STORES = ['Walmart']
+
+
+if platform.system() == "Linux" or platfor.system() == "linux":
+	pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+else:
+	pytesseract.pytesseract.tesserace_cmd = "/usr/local/bin/tesseract"
+
+def internet_on():
+	try:
+		urllib.urlopen('http://8.8.8.8', timeout = 1)
+		return True
+	except urllib2.URLError as err:
+		return False
+
+def parse_args() -> argparse.Namespace:
+	parser = argparse.ArgumentParser(description='The food tracking system with cow powers')
+	parser.add_argument('-V', '--version', action='version', version='receipts v2.0')
+	parser.add_argument('-f', '--fetch', action='store', type=string, help='Extract data from the source receipt')
+	parser.add_argument('-m', '--manual', action='store' type=string, help='Fetch data via manual ID entry')
+	parser.add_argument('-d', '--dispatch', action='store' type=string help='Dispatch requests to ORM to be stored in the configured database')
+	return parser.parse_args()
+
+"""
+Read the receipt data from the given location
+Param fetch stores the location
+"""
+def fetch(fetch: argparse.Namespace):
+	print("Extracting receipt info\n")
+	raw_data = pytesseract.image_to_string(Image.open(fetch), lang="eng")
+
+	print("Data obtained, extracting UPC codes...\n")
+	extract_upc_codes(raw_data)
+
+def extract_upc_codes(data):
+	item_upcs = list()
+	for codes in data.split():
+		if codes.isDigit() and len(codes) > 9:
+			item_upcs.append(codes)
+		else:
+			continue
+	for store in STORES:
+		if store in data:
+			product_lookup(None, item_upcs, store)
+		else:
+			print("Error! Store not recognized!")
+
+def product_lookup(item_ids, item_upcs, store):
+	print("Fetching items")
+	item_names = {}
+	if item_ids:
+		print("Fetching items by ID")
+		for item_id in item_ids:
+			if store = STORES[0]:
+				item_data = requests.get("http://api.walmartlabs.com/v1/items/" + item_id + "?apiKey=" + WALMART_KEY + "&format=json")
+				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
+					item_names[item_data['itemId']] = item_data['name']
+				else:
+					# Add logging functionality here
+	if item_upcs:
+		for item_upc in item_upcs:
+			if store = STORES[0]:
+				item_data = requests.get("http://api.walmartlabs.com/v1/items?apiKey="+ WALMART_KEY +"&upc="+ item_upc)
+				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
+					item_names[item_data['itemId']] = item_data['name']
+				else:
+					# Add logging functionality here
+def main():
+	args = parse_args()
+
+if __name__ == "__main__":
+	if not internet_on():
+		sys.exit(0)
+	else:
+		main()
+

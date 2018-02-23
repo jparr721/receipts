@@ -1,10 +1,15 @@
+#!/usr/bin/env python3
 from PIL import Image
 from datetime import datetime
+from pathlib import Path
+import urllib2
 import pytesseract
 import requests
 import platform
 import sys
 import argparse
+
+PARSER_DATA_DIR = Path.home() / '.receipt-parser'
 
 if platform.system() == "Linux":
 	# For arch linux
@@ -12,6 +17,14 @@ if platform.system() == "Linux":
 else:
 	# For OSX
 	pytesseract.pytesseract.tesseract_cmd = "/usr/local/bin/tesseract"
+
+# This script requires internet to run
+def internet_on():
+	try:
+		urllib.urlopen('http://8.8.8.8', timeout = 1)
+		return True
+	except urllib2.URLError as err:
+		return False
 
 def initialize():
 	today = datetime.now().month() + "/" + datetime.now().day() + "/" +datetime.now().year()
@@ -25,10 +38,11 @@ def parse_args() -> argparse.Namespace:
 	parser.add_argument('-m', '--manual', action='store', type=string, help="Manually enter item ID to be stored")
 #parser.add_argument('l', '--logging', action='store', help="Enable logging of errors")
 	subparsers = parser.add_subparsers(dest='cmd')
+	return parser.parse_args()
 
-def acquire_data(acquire: argparse.Namespace):
+def acquire_data(acquire: argparse.Namespace): 
 	"""
-	Read thhe receipt data from the given location
+	Read the receipt data from the given location
 	and call helper functions
 	"""
 	print("Extracting receipt info...")
@@ -87,8 +101,15 @@ def walmart_item_lookup(manual, the_juice):
 			else:
 				generate_logfile('ERROR', item_upc, today)
 
+def main():
+	args = parse_args()
+
+	if args.acquire:
+		
+		
 
 if __name__ == "__main__":
-	acquire_data('test_receipt.jpg')
-	acquire_data('walmart_receipt_1.jpg')
-	
+	if not internet_on():
+		sys.exit(0)
+	else:
+		main()
