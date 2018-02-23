@@ -11,4 +11,17 @@ Grocery store food classifier.
 ### Compatible Stores
 * Walmart
 
+## Usage
+
+    $ python setup.py install
+    $ today
+
+## Motivation
+
+I want to analyze big data sets, model them, and show trends in the data. This is my first attempt.
+
+## License
+
+[MIT](LICENSE)
+
 
