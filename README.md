@@ -1,4 +1,4 @@
-# Receipt-Parser v1.0.0
+# receipts v2.0.0
 
 Grocery store food classifier.
 
