@@ -8,7 +8,7 @@ setup(
 	name='receipt',
 	version='1.0.0',
 	author='Jarred Parr',
-	install_requires=['PIL'],
+	install_requires=['PIL, pytesseract'],
 	scripts=['bin/receipts'],
 	author_email='jparr721@gmail.com',
 	description='Simple receipt data management',
