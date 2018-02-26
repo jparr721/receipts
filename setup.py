@@ -5,7 +5,7 @@ def read(filename):
 	return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 setup(
-	name='Zeus',
+	name='receipt',
 	version='1.0.0',
 	author='Jarred Parr',
 	install_requires=['PIL'],

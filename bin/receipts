@@ -8,11 +8,14 @@ import requests
 import platform
 import sys
 import argparse
+import getopt
 
 PARSER_DATA_DIR = Path.home() / '.receipts'
 WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
 STORES = ['Walmart']
-
+TODAY = datetime.now().month() + "/" + datetime.now().day() + "/" + datetime.now().year()
+fetch = ""
+store_destination = ""
 
 if platform.system() == "Linux" or platfor.system() == "linux":
 	pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
@@ -26,19 +29,17 @@ def internet_on():
 	except urllib2.URLError as err:
 		return False
 
-def parse_args() -> argparse.Namespace:
-	parser = argparse.ArgumentParser(description='The food tracking system with cow powers')
-	parser.add_argument('-V', '--version', action='version', version='receipts v2.0')
-	parser.add_argument('-f', '--fetch', action='store', type=string, help='Extract data from the source receipt')
-	parser.add_argument('-m', '--manual', action='store' type=string, help='Fetch data via manual ID entry')
-	parser.add_argument('-d', '--dispatch', action='store' type=string help='Dispatch requests to ORM to be stored in the configured database')
-	return parser.parse_args()
+def usage():
+	print("Receipts")
+
+def version():
+	print("Receipts v0.1.0")
 
 """
 Read the receipt data from the given location
 Param fetch stores the location
 """
-def fetch(fetch: argparse.Namespace):
+def fetch():
 	print("Extracting receipt info\n")
 	raw_data = pytesseract.image_to_string(Image.open(fetch), lang="eng")
 
@@ -64,22 +65,45 @@ def product_lookup(item_ids, item_upcs, store):
 	if item_ids:
 		print("Fetching items by ID")
 		for item_id in item_ids:
-			if store = STORES[0]:
+			if store == STORES[0]:
 				item_data = requests.get("http://api.walmartlabs.com/v1/items/" + item_id + "?apiKey=" + WALMART_KEY + "&format=json")
 				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
 					item_names[item_data['itemId']] = item_data['name']
 				else:
 					# Add logging functionality here
-	if item_upcs:
+	elif item_upcs:
+		print("Fetch item by UPC")
 		for item_upc in item_upcs:
-			if store = STORES[0]:
+			if store == STORES[0]:
 				item_data = requests.get("http://api.walmartlabs.com/v1/items?apiKey="+ WALMART_KEY +"&upc="+ item_upc)
 				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
 					item_names[item_data['itemId']] = item_data['name']
 				else:
 					# Add logging functionality here
 def main():
-	args = parse_args()
+	global fetch
+	global store_destination
+
+	if not len(sys.argv[1:]):
+		usage()
+
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "hvfs",["help", "version", "fetch", "save"])
+	except getopt.GetoptError as err:
+		print(str(err))
+		usage()
+
+	for o,a in opts:
+		if o in ("-h", "--help"):
+			usage()
+		elif o in ("-v", "--version"):
+			version()
+		elif o in ("-f", "--fetch"):
+			fetch = a
+		elif o in ("-s", "--save"):
+			store_destination = a
+		else:
+			assert False, "Unahndled option"
 
 if __name__ == "__main__":
 	if not internet_on():
