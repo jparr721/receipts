@@ -9,6 +9,8 @@ import platform
 import sys
 import argparse
 import getopt
+import psycopg2
+import subprocess
 
 PARSER_DATA_DIR = Path.home() / '.receipts'
 WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
@@ -16,6 +18,7 @@ STORES = ['Walmart']
 TODAY = datetime.now().month() + "/" + datetime.now().day() + "/" + datetime.now().year()
 fetch = ""
 store_destination = ""
+database_address = ""
 
 if platform.system() == "Linux" or platfor.system() == "linux":
 	pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
@@ -46,6 +49,11 @@ def fetch():
 	print("Data obtained, extracting UPC codes...\n")
 	extract_upc_codes(raw_data)
 
+def add_to_log(data):
+	log = open(TODAY+"_log", 'w+')
+	log.write(data + "\r\n")
+	log.close()
+
 def extract_upc_codes(data):
 	item_upcs = list()
 	for codes in data.split():
@@ -58,6 +66,7 @@ def extract_upc_codes(data):
 			product_lookup(None, item_upcs, store)
 		else:
 			print("Error! Store not recognized!")
+			add_to_log(TODAY + "Error, invalid store")
 
 def product_lookup(item_ids, item_upcs, store):
 	print("Fetching items")
@@ -70,7 +79,9 @@ def product_lookup(item_ids, item_upcs, store):
 				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
 					item_names[item_data['itemId']] = item_data['name']
 				else:
-					# Add logging functionality here
+					print("logging error")
+					add_to_log(TODAY + "Error, Could not find item_id: " + item_id)
+
 	elif item_upcs:
 		print("Fetch item by UPC")
 		for item_upc in item_upcs:
@@ -79,10 +90,23 @@ def product_lookup(item_ids, item_upcs, store):
 				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
 					item_names[item_data['itemId']] = item_data['name']
 				else:
-					# Add logging functionality here
+					# Add logging
+					print("logging error")
+					add_to_log(TODAY + "Error, Could not find item_upc: " + item_upc)
+
+
+def database_store(name, store, data):
+	payload = {
+		"name": name,
+		"food_type": "undef",
+		"store": store
+	}
+	r = requests.post(database_address + '/api/v1/items/new', data=payload)
+
 def main():
 	global fetch
 	global store_destination
+	global database_address
 
 	if not len(sys.argv[1:]):
 		usage()
@@ -102,6 +126,8 @@ def main():
 			fetch = a
 		elif o in ("-s", "--save"):
 			store_destination = a
+		elif o in ("-d", "--database"):
+			database_address = a
 		else:
 			assert False, "Unahndled option"
 

@@ -9,7 +9,7 @@ setup(
 	version='1.0.0',
 	author='Jarred Parr',
 	author_email='jparr721@gmail.com',
-	install_requires=['PIL', 'pytesseract'],
+	install_requires=['PIL', 'pytesseract', 'psycopg2'],
 	scripts=['bin/receipts'],
 	description='Simple receipt data management',
 	license='MIT',
