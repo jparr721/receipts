@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 from PIL import Image
-from datetime import datetime
+from datetime import date
 import platform
 import pytesseract
 import requests
+import os
+import subprocess
+import sys
+import argparse
 
-PARSER_DATA_DIR = Path.home() / '.receips'
+RECEIPT_DIR = '../.receipts'
 WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
 stores = ['Walmart']
 destination = ""
@@ -38,7 +42,9 @@ def parse_args() -> argparse.Namespace:
 
 def fetch(args: argparse.Namespace):
     print("\nSnatching them foods, boii")
-    raw_data = pytesseract.image_to_string(Image.open(args.receipt), lang="eng")
+    raw_data = pytesseract.image_to_string(
+            Image.open(args.receipt),
+            lang="eng")
 
     print("\nFoods snatched, getting UPC codes... done")
     extract_upc(raw_data)
@@ -50,8 +56,8 @@ def extract_upc(data):
     upcs = list()
     for codes in data.split():
         if codes.isDigit() and len(codes) > 9:
-            item_upcs.append(codes)
-        for store in stores
+            upcs.append(codes)
+        for store in stores:
             if store in data:
                 product_lookup(None, upcs, store)
             else:
@@ -61,23 +67,66 @@ def extract_upc(data):
 def product_lookup(item_id, upcs, store):
     global stores
     global WALMART_KEY
+    args = parse_args()
+    data = None
 
     print("CROSS REFERENCING TO THE DATABASE WOOO")
-    names={}
     if item_id:
         print("Grabbing items by ID")
         for ids in item_id:
             if store == stores[0]:
-                data = requests.get("http://api.walmartlabs.com/v1/items/" + ids + "?apiKey=" + WALMART_KEY + "&format=json")
+                data = requests.get("http://api.walmartlabs.com/v1/items/" +
+                                    ids +
+                                    "?apiKey=" +
+                                    WALMART_KEY +
+                                    "&format=json")
                 if (data['code'] == 4023 or data['code'] == '4023'):
                     print("OH NO that item doesn't exist!")
     if upcs:
         print("Grabbing items by UPC")
         for upc in upcs:
             if store == stores[0]:
-                data = requests/get("http://api.walmartlabs.com/v1/items?apiKey="+ WALMART_KEY +"&upc="+ item_upc)
-                if (data['code'] == 4023 or data['code'] = '4023'):
+                data = requests.get("http://api.walmartlabs.com/v1/items?apiKey="+
+                                    WALMART_KEY +
+                                    "&upc=" +
+                                    upc)
+                if (data['code'] == 4023 or data['code'] == '4023'):
                     print("OH NO that item doesn't exist!")
+
+    if args.save:
+        save(data)
+
+
+def save(data):
+    global RECEIPT_DIR
+
+    day = date.today()
+    day_items = RECEIPT_DIR / 'food_{}.txt'.format(day)
+
+    if day_items.exists():
+        print("File found, writing data...")
+        file = open(day_items, "w")
+        file.write(data)
+        file.close()
+        print("done")
+    else:
+        print("Error, file not found. Creating...")
+        if subprocess.run(['touch', day_items]):
+            print("File created, writing data...")
+            file = open(day_items, "w")
+            file.write(data)
+            file.close()
+            print("done")
+        else:
+            print("Error creating file, exiting")
+            sys.exit(1)
+
+
+def check_file():
+    global RECEIPT_DIR
+    if not os.path.exists(RECEIPT_DIR):
+        print(".receipts folder not found, making directory")
+        os.mkdirs(RECEIPT_DIR)
 
 
 def main():
@@ -85,3 +134,9 @@ def main():
 
     if args.receipt:
         fetch()
+    else:
+        print("Error, please run with -r to use")
+
+
+if __name__ == '__main__':
+    sys.exit(0 if main() else 1)
