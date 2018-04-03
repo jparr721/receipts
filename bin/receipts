@@ -1,139 +1,70 @@
-#!/usr/bin/env python3
 from PIL import Image
 from datetime import datetime
-from pathlib import Path
-import urllib2
+import platform
 import pytesseract
 import requests
-import platform
-import sys
-import argparse
-import getopt
-import psycopg2
-import subprocess
 
-PARSER_DATA_DIR = Path.home() / '.receipts'
+PARSER_DATA_DIR = Path.home() / '.receips'
 WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
-STORES = ['Walmart']
-TODAY = datetime.now().month() + "/" + datetime.now().day() + "/" + datetime.now().year()
-fetch = ""
-store_destination = ""
-database_address = ""
+stores = ['Walmart']
+destination = ""
 
-if platform.system() == "Linux" or platfor.system() == "linux":
-	pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+if platform.system() == "Linux" or platform.system() == "linux":
+    pytesseract.pytesseract.tesseract_cmd = "usr/bin/tesseract"
 else:
-	pytesseract.pytesseract.tesserace_cmd = "/usr/local/bin/tesseract"
-
-def internet_on():
-	try:
-		urllib.urlopen('http://8.8.8.8', timeout = 1)
-		return True
-	except urllib2.URLError as err:
-		return False
-
-def usage():
-	print("Receipts")
-
-def version():
-	print("Receipts v0.1.0")
-
-"""
-Read the receipt data from the given location
-Param fetch stores the location
-"""
-def fetch():
-	print("Extracting receipt info\n")
-	raw_data = pytesseract.image_to_string(Image.open(fetch), lang="eng")
-
-	print("Data obtained, extracting UPC codes...\n")
-	extract_upc_codes(raw_data)
-
-def add_to_log(data):
-	log = open(TODAY+"_log", 'w+')
-	log.write(data + "\r\n")
-	log.close()
-
-def extract_upc_codes(data):
-	item_upcs = list()
-	for codes in data.split():
-		if codes.isDigit() and len(codes) > 9:
-			item_upcs.append(codes)
-		else:
-			continue
-	for store in STORES:
-		if store in data:
-			product_lookup(None, item_upcs, store)
-		else:
-			print("Error! Store not recognized!")
-			add_to_log(TODAY + "Error, invalid store")
-
-def product_lookup(item_ids, item_upcs, store):
-	print("Fetching items")
-	item_names = {}
-	if item_ids:
-		print("Fetching items by ID")
-		for item_id in item_ids:
-			if store == STORES[0]:
-				item_data = requests.get("http://api.walmartlabs.com/v1/items/" + item_id + "?apiKey=" + WALMART_KEY + "&format=json")
-				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
-					item_names[item_data['itemId']] = item_data['name']
-				else:
-					print("logging error")
-					add_to_log(TODAY + "Error, Could not find item_id: " + item_id)
-
-	elif item_upcs:
-		print("Fetch item by UPC")
-		for item_upc in item_upcs:
-			if store == STORES[0]:
-				item_data = requests.get("http://api.walmartlabs.com/v1/items?apiKey="+ WALMART_KEY +"&upc="+ item_upc)
-				if (item_data['code'] != 4023) or (item_data['code'] != '4023'):
-					item_names[item_data['itemId']] = item_data['name']
-				else:
-					# Add logging
-					print("logging error")
-					add_to_log(TODAY + "Error, Could not find item_upc: " + item_upc)
+    # For OSX installed with HOMEBREW BABAY
+    pytesseract.pytesseract.tesseract_cmd = "/usr/local/bin/tesseract"
 
 
-def database_store(name, store, data):
-	payload = {
-		"name": name,
-		"food_type": "undef",
-		"store": store
-	}
-	r = requests.post(database_address + '/api/v1/items/new', data=payload)
+def parse_args() -> argparse.Namespace:
 
-def main():
-	global fetch
-	global store_destination
-	global database_address
+    parser = argparse.ArgumentParser(
+        description=('Read your receipts SUPA FAST')
+    )
+    parser.add_argument(
+        '--receipt', '-r',
+        action='store',
+        help='Receipt location',
+    )
+    parser.add_argument(
+        '--save', '-s',
+        action='store_true',
+        help='Save the output',
+    )
 
-	if not len(sys.argv[1:]):
-		usage()
 
-	try:
-		opts, args = getopt.getopt(sys.argv[1:], "hvfs",["help", "version", "fetch", "save"])
-	except getopt.GetoptError as err:
-		print(str(err))
-		usage()
+def fetch(args: argparse.Namespace):
+    print("\nSnatching them foods, boii")
+    raw_data = pytesseract.image_to_string(Image.open(args.receipt), lang="eng")
 
-	for o,a in opts:
-		if o in ("-h", "--help"):
-			usage()
-		elif o in ("-v", "--version"):
-			version()
-		elif o in ("-f", "--fetch"):
-			fetch = a
-		elif o in ("-s", "--save"):
-			store_destination = a
-		elif o in ("-d", "--database"):
-			database_address = a
-		else:
-			assert False, "Unahndled option"
+    print("\nFoods snatched, getting UPC codes... done")
+    extract_upc(raw_data)
 
-if __name__ == "__main__":
-	if not internet_on():
-		sys.exit(0)
-	else:
-		main()
 
+def extract_upc(data):
+    global stores
+
+    upcs = list()
+    for codes in data.split():
+        if codes.isDigit() and len(codes) > 9:
+            item_upcs.append(codes)
+        for store in stores
+            if store in data:
+                product_lookup(None, upcs, store)
+            else:
+                print("Oopsie woopsie, this storie is not weckognized")
+
+
+def product_lookup(item_id, upc, store):
+    global stores
+    global WALMART_KEY
+
+    print("CROSS REFERENCING TO THE DATABASE WOOO")
+    names={}
+    if item_id:
+        print("Grabbing items by ID")
+        for ids in item_id:
+            if store == stores[0]:
+                data = requests.get("http://api.walmartlabs.com/v1/items/" + ids + "?apiKey=" + WALMART_KEY + "&format=json")
+                if (ids['code'] == 4023 or ids['code'] == '4023'):
+                    print("OH NO that item doesn't exist!")
