@@ -9,6 +9,7 @@ PARSER_DATA_DIR = Path.home() / '.receips'
 WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
 stores = ['Walmart']
 destination = ""
+receipt = ""
 
 if platform.system() == "Linux" or platform.system() == "linux":
     pytesseract.pytesseract.tesseract_cmd = "usr/bin/tesseract"
@@ -32,6 +33,7 @@ def parse_args() -> argparse.Namespace:
         action='store_true',
         help='Save the output',
     )
+    return parser.parse_args()
 
 
 def fetch(args: argparse.Namespace):
@@ -56,7 +58,7 @@ def extract_upc(data):
                 print("Oopsie woopsie, this storie is not weckognized")
 
 
-def product_lookup(item_id, upc, store):
+def product_lookup(item_id, upcs, store):
     global stores
     global WALMART_KEY
 
@@ -67,5 +69,19 @@ def product_lookup(item_id, upc, store):
         for ids in item_id:
             if store == stores[0]:
                 data = requests.get("http://api.walmartlabs.com/v1/items/" + ids + "?apiKey=" + WALMART_KEY + "&format=json")
-                if (ids['code'] == 4023 or ids['code'] == '4023'):
+                if (data['code'] == 4023 or data['code'] == '4023'):
                     print("OH NO that item doesn't exist!")
+    if upcs:
+        print("Grabbing items by UPC")
+        for upc in upcs:
+            if store == stores[0]:
+                data = requests/get("http://api.walmartlabs.com/v1/items?apiKey="+ WALMART_KEY +"&upc="+ item_upc)
+                if (data['code'] == 4023 or data['code'] = '4023'):
+                    print("OH NO that item doesn't exist!")
+
+
+def main():
+    args = parse_args()
+
+    if args.receipt:
+        fetch()
