@@ -14,7 +14,7 @@ Grocery store food classifier.
 ## Usage
 
     $ python setup.py install
-    $ receipts
+    $ receipts -r [file_name]
 
 ## Motivation
 
