@@ -132,6 +132,8 @@ def check_file():
 def main():
     args = parse_args()
 
+    check_file()
+
     if args.receipt:
         fetch()
     else:
