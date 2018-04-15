@@ -1,4 +1,4 @@
-# receipts v2.0.0
+# receipts v2.5.0
 
 Grocery store food classifier.
 
