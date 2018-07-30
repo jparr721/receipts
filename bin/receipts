@@ -46,8 +46,9 @@ def fetch(args: argparse.Namespace):
             Image.open(args.receipt),
             lang="eng")
 
-    print("\nFoods snatched, getting UPC codes... done")
+    print("\nFoods snatched, getting UPC codes...\n")
     extract_upc(raw_data)
+    print('\ndone!')
 
 
 def extract_upc(data):
@@ -61,7 +62,7 @@ def extract_upc(data):
             if store in data:
                 product_lookup(None, upcs, store)
             else:
-                print("Oopsie woopsie, this storie is not weckognized")
+                print("Store not recognized")
 
 
 def product_lookup(item_id, upcs, store):
