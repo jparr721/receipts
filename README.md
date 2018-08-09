@@ -2,8 +2,6 @@
 
 Grocery store food classifier.
 
-This still works, however, a library is being worked on to allow for this software to be more easily embedded into application logic.
-
 ## Installation
 ### Requirements
 * PyTesseract 0.18
