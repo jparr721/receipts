@@ -10,7 +10,7 @@ import sys
 import argparse
 
 RECEIPT_DIR = '../.receipts'
-WALMART_KEY = "zcnamdfwjd7udf7nfv7ftrdw"
+WALMART_KEY = ""
 stores = ['Walmart']
 destination = ""
 receipt = ""
